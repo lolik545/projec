@@ -1,5 +1,6 @@
 package com.example.bvt.controller;
 
+import com.example.bvt.component.Client;
 import com.example.bvt.modelDTO.ClientDTO;
 import com.example.bvt.service.impl.ServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ public class ControllerClient {
     private ServiceClient serviceClient;
 
     @PostMapping("/saveClient")
-    public ResponseEntity saveClient(@RequestBody ClientDTO clientDTO) {
+    public ResponseEntity saveClient(@RequestBody Client client) {
+        serviceClient.save(client);
         return ResponseEntity.ok("");
 
     }
