@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="saver.js"></script>
+    <title>Add User</title>
+</head>
+<body>
+<h2>AddUser </h2>
+<br/>
+<br/>
+<br/>
+
+<form method="post" action="/saveUser">
+    <table border=0 >
+        <tr><td align="right">User Name:</td><td align="left"><input type="text" name="name" size="50"></input></td></tr>
+        <tr><td align="right">City:</td><td align="left"><input type="text" name="city" size="50"></input></td></tr>
+        <tr><td align="right">Age:</td><td align="left"><input type="text" name="age" size="50"></input></td></tr>
+        <tr><td align="right"></td><td align="left"><input type="submit"></input></td></tr>
+    </table>
+</form>
+
+</body>
+</html>
