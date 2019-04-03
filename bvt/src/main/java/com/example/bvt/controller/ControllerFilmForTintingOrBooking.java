@@ -13,23 +13,27 @@ import java.util.Optional;
 public class ControllerFilmForTintingOrBooking {
 
     private final ServiceFilmForTintingOrBookings serviceFilmForTintingOrBookings;
+
     @PostMapping("saveFilm")
-    public ResponseEntity saveFilm(@RequestBody FilmForTintingOrBooking filmForTintingOrBooking){
-serviceFilmForTintingOrBookings.save(filmForTintingOrBooking);
-return ResponseEntity.ok(filmForTintingOrBooking+"saved");
+    public ResponseEntity saveFilm(@RequestBody FilmForTintingOrBooking filmForTintingOrBooking) {
+        serviceFilmForTintingOrBookings.save(filmForTintingOrBooking);
+        return ResponseEntity.ok(filmForTintingOrBooking + "saved");
     }
+
     @PostMapping("/deleteFilm/{id}")
-    public ResponseEntity deleteFilmById(@PathVariable Long id ){
+    public ResponseEntity deleteFilmById(@PathVariable Long id) {
         serviceFilmForTintingOrBookings.deletebyId(id);
         return ResponseEntity.ok("Delete");
     }
+
     @GetMapping("/getOneFilmByID/{id}")
-    public ResponseEntity findById(@PathVariable Long id){
+    public ResponseEntity findById(@PathVariable Long id) {
         return ResponseEntity.ok(serviceFilmForTintingOrBookings.findById(id));
     }
+
     @GetMapping("findAll")
-    public ResponseEntity findAll(){
-      return ResponseEntity.ok(  serviceFilmForTintingOrBookings.getAll());
+    public ResponseEntity findAll() {
+        return ResponseEntity.ok(serviceFilmForTintingOrBookings.getAll());
     }
 
 }

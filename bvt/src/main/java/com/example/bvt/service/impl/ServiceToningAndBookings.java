@@ -42,21 +42,21 @@ public class ServiceToningAndBookings implements ServiceToningAndBooking {
 
     }
 
-@Override
-    public void changeAdress(Long id, String adress){
+    @Override
+    public void changeAdress(Long id, String adress) {
 
-        toningAndBooking=repositoryToningAndBooking.findById(id);
-    String description= toningAndBooking.get().getDescription();
-    repositoryToningAndBooking.save(new ToningAndBooking(id,adress,description));
+        toningAndBooking = repositoryToningAndBooking.findById(id);
+        String description = toningAndBooking.get().getDescription();
+        repositoryToningAndBooking.save(new ToningAndBooking(id, adress, description));
     }
 
     @Override
     public ToningAndBooking changeDescription(Long id, String description) {
-    return null;
-     }
+        return null;
+    }
 
     @Override
     public ToningAndBooking faindByAdress(String adress) {
-     return    repositoryToningAndBooking.findByAdress(adress);
+        return repositoryToningAndBooking.findByAdress(adress);
     }
 }

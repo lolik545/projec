@@ -27,11 +27,12 @@ public class ControllerToningAndBooking {
 
     @Autowired
     private Optional<ToningAndBooking> toningAndBookingOptional;
+
     @PostMapping("/savedService")
     public ResponseEntity saveToningSevice(@RequestBody ToningAndBooking toningAndBooking) {
 
         ToningAndBooking userModel = serviceToningAndBooking.faindByAdress(toningAndBooking.getAdress());
-        if(userModel != null) {
+        if (userModel != null) {
             return ResponseEntity.ok("This adress is used");
         }
         serviceToningAndBooking.save(toningAndBooking);
@@ -46,8 +47,8 @@ public class ControllerToningAndBooking {
 
     @GetMapping("/getOneToningService/{id}")
     @JsonSerialize
-    public ResponseEntity getOneToningService(@PathVariable Long id)  {
-    toningAndBookingOptional=serviceToningAndBooking.getOne(id);
+    public ResponseEntity getOneToningService(@PathVariable Long id) {
+        toningAndBookingOptional = serviceToningAndBooking.getOne(id);
         return ResponseEntity.ok(toningAndBookingOptional);
     }
 
@@ -55,13 +56,15 @@ public class ControllerToningAndBooking {
     public ResponseEntity getAllToningService() {
         return ResponseEntity.ok(serviceToningAndBooking.getAll());
     }
+
     @PutMapping("changeAdressToningService/{adress}")
-    public ResponseEntity changeAdressTOningService(@PathVariable Long id, String adress){
-        serviceToningAndBooking.changeAdress(id,adress);
-return ResponseEntity.ok("changed");
+    public ResponseEntity changeAdressTOningService(@PathVariable Long id, String adress) {
+        serviceToningAndBooking.changeAdress(id, adress);
+        return ResponseEntity.ok("changed");
     }
+
     @GetMapping("/findByAdressToningService/{adress}")
-    public ResponseEntity findByAdressToningService(@PathVariable String adress){
+    public ResponseEntity findByAdressToningService(@PathVariable String adress) {
         return ResponseEntity.ok(serviceToningAndBooking.faindByAdress(adress));
     }
 

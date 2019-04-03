@@ -15,16 +15,18 @@ import java.util.Optional;
 @Service
 
 public class ServiceFilmForTintingOrBookings implements ServiceFilmForTintingOrBooking {
-@Autowired
-    private  RepositoryFilmForTintingOrBooking repositoryFilmForTintingOrBooking;
-@Autowired
-private Optional<FilmForTintingOrBooking> filmForToningAndBokingDTO;
-@Autowired
-private ServiceToningAndBookings serviceToningAndBookings;
+    @Autowired
+    private RepositoryFilmForTintingOrBooking repositoryFilmForTintingOrBooking;
+    @Autowired
+    private Optional<FilmForTintingOrBooking> filmForToningAndBokingDTO;
+    @Autowired
+    private ServiceToningAndBookings serviceToningAndBookings;
+
     @Override
     public void save(FilmForTintingOrBooking filmForTintingOrBooking) {
-if (serviceToningAndBookings.getOne(filmForTintingOrBooking.getIdToningAndBooking()).isPresent()){
-        repositoryFilmForTintingOrBooking.save(filmForTintingOrBooking);}
+        if (serviceToningAndBookings.getOne(filmForTintingOrBooking.getIdToningAndBooking()).isPresent()) {
+            repositoryFilmForTintingOrBooking.save(filmForTintingOrBooking);
+        }
     }
 
     @Override
@@ -40,7 +42,7 @@ if (serviceToningAndBookings.getOne(filmForTintingOrBooking.getIdToningAndBookin
 
     @Override
     public List<FilmForTintingOrBooking> getAll() {
-        List<FilmForTintingOrBooking> filmForTintingOrBookingList=new ArrayList<>();
+        List<FilmForTintingOrBooking> filmForTintingOrBookingList = new ArrayList<>();
         filmForTintingOrBookingList.addAll(repositoryFilmForTintingOrBooking.findAll());
         return filmForTintingOrBookingList;
     }
@@ -49,9 +51,9 @@ if (serviceToningAndBookings.getOne(filmForTintingOrBooking.getIdToningAndBookin
     public void changeSquare(Long id, double squareMeter) {
 
         repositoryFilmForTintingOrBooking.findById(id).isPresent();
-        filmForToningAndBokingDTO=repositoryFilmForTintingOrBooking.findById(id);
+        filmForToningAndBokingDTO = repositoryFilmForTintingOrBooking.findById(id);
         filmForToningAndBokingDTO.get().setSquareMeter(squareMeter);
-        FilmForTintingOrBooking filmForTintingOrBooking=new FilmForTintingOrBooking(filmForToningAndBokingDTO);
+        FilmForTintingOrBooking filmForTintingOrBooking = new FilmForTintingOrBooking(filmForToningAndBokingDTO);
         repositoryFilmForTintingOrBooking.save(filmForTintingOrBooking);
     }
 

@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ServiceDepartament {
 
-        public void save(Departament departament);
+    public void save(Departament departament);
 
-        public List<Departament> getAll();
+    public List<Departament> getAll();
 
-        public Departament getOne(Long id);
+    public Departament getOne(Long id);
 
-        public void deleteForId(Long id);
+    public void deleteForId(Long id);
 
 
 }

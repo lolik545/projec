@@ -12,10 +12,10 @@ import java.util.Optional;
 
 public class ObjectToJson {
 
-    public String toningToJson(Optional<ToningAndBooking> toningAndBookingDTO)  {
-        ObjectMapper objectMapper=new ObjectMapper();
+    public String toningToJson(Optional<ToningAndBooking> toningAndBookingDTO) {
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        String  string= null;
+        String string = null;
         try {
             string = objectMapper.writeValueAsString(toningAndBookingDTO);
         } catch (JsonProcessingException e) {

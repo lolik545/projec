@@ -12,14 +12,14 @@ import javax.validation.constraints.NotBlank;
 @Data
 @Entity
 public class Client {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-private String firstNameClient;
-private String lastNameClient;
-private long idFilmForTintingOrBooking;
-private double squareMeter;
-@NotBlank
-private String contact;
-private Long idToningAndBooking;
+    private String firstNameClient;
+    private String lastNameClient;
+    private long idFilmForTintingOrBooking;
+    private double squareMeter;
+    @NotBlank
+    private String contact;
+    private Long idToningAndBooking;
 }

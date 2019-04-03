@@ -10,16 +10,20 @@ public class ToningAndBookingDTO {
     private long id;
     private String description;
     private String adress;
-public ToningAndBookingDTO(){}
-public ToningAndBookingDTO(Long id ,String adress){
-    this.id=id;
-    this.adress=adress;
-}
-public ToningAndBookingDTO(ToningAndBooking toningAndBooking){
-    this.id=toningAndBooking.getId();
-    this.adress=toningAndBooking.getAdress();
-    this.description=toningAndBooking.getDescription();
-}
+
+    public ToningAndBookingDTO() {
+    }
+
+    public ToningAndBookingDTO(Long id, String adress) {
+        this.id = id;
+        this.adress = adress;
+    }
+
+    public ToningAndBookingDTO(ToningAndBooking toningAndBooking) {
+        this.id = toningAndBooking.getId();
+        this.adress = toningAndBooking.getAdress();
+        this.description = toningAndBooking.getDescription();
+    }
 
     public long getId() {
         return id;

@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ServiceClient implements ServiceClients {
     private final RepositoryClient repositoryClient;
+
     @Override
     public void save(Client client) {
         repositoryClient.save(client);
@@ -20,7 +21,7 @@ public class ServiceClient implements ServiceClients {
 
     @Override
     public List<Client> getAll() {
-        List<Client> clientList=new ArrayList<>();
+        List<Client> clientList = new ArrayList<>();
         clientList.addAll(repositoryClient.findAll());
         return clientList;
     }
@@ -29,11 +30,11 @@ public class ServiceClient implements ServiceClients {
     public Client getOne(Long id) {
 
         return repositoryClient.getOne(id);
-        }
+    }
 
     @Override
     public void deleteForId(Long id) {
         repositoryClient.deleteById(id);
 
     }
-    }
+}

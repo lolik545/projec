@@ -18,7 +18,7 @@ public class ServiceEmployers implements ServiceEmployer {
 
     @Override
     public void save(Employer employer) {
-        if(serviceToningAndBookings.getOne(employer.getIdToningAndBooking())!=null) {
+        if (serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) != null) {
             repositoryEmployers.save(employer);
         }
     }
@@ -67,17 +67,17 @@ public class ServiceEmployers implements ServiceEmployer {
 
     @Override
     public List<Employer> findByLastNameAndFirsName(String firstName, String lastName) {
-        List<Employer> employerList=new ArrayList<>();
-        List<Employer>list=new ArrayList<>();
+        List<Employer> employerList = new ArrayList<>();
+        List<Employer> list = new ArrayList<>();
         String firstNameRepository;
         String lastNameRepository;
-        System.out.println(lastName+"    "+firstName);
+        System.out.println(lastName + "    " + firstName);
         employerList.addAll(repositoryEmployers.findAll());
-        for (int i=0;i<=employerList.size()-1;i++){
-           firstNameRepository=employerList.get(i).getFirstNAma();
-           lastNameRepository=employerList.get(i).getLastName();
-            if ((firstNameRepository.hashCode()==firstName.hashCode())&&(lastNameRepository.hashCode()==lastName.hashCode()))
-            {    list.add(employerList.get(i));
+        for (int i = 0; i <= employerList.size() - 1; i++) {
+            firstNameRepository = employerList.get(i).getFirstNAma();
+            lastNameRepository = employerList.get(i).getLastName();
+            if ((firstNameRepository.hashCode() == firstName.hashCode()) && (lastNameRepository.hashCode() == lastName.hashCode())) {
+                list.add(employerList.get(i));
             }
         }
         return list;

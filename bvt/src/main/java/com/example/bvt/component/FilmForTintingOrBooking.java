@@ -17,22 +17,25 @@ import java.util.Optional;
 
 public class FilmForTintingOrBooking {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
-   private String manufacturer;
-   private double bandwidth;
-   private double squareMeter;
-   private String color;
-   private String classBooking;
-   private Long idToningAndBooking;
-public FilmForTintingOrBooking(){}
-   public FilmForTintingOrBooking(Optional<FilmForTintingOrBooking> filmForToningAndBokingDTO) {
-      this.id=filmForToningAndBokingDTO.get().getId();
-      this.manufacturer=filmForToningAndBokingDTO.get().getManufacturer();
-      this.bandwidth=filmForToningAndBokingDTO.get().getBandwidth();
-      this.squareMeter=filmForToningAndBokingDTO.get().getSquareMeter();
-      this.classBooking=filmForToningAndBokingDTO.get().getClassBooking();
-      this.idToningAndBooking=filmForToningAndBokingDTO.get().idToningAndBooking;
-   }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String manufacturer;
+    private double bandwidth;
+    private double squareMeter;
+    private String color;
+    private String classBooking;
+    private Long idToningAndBooking;
+
+    public FilmForTintingOrBooking() {
+    }
+
+    public FilmForTintingOrBooking(Optional<FilmForTintingOrBooking> filmForToningAndBokingDTO) {
+        this.id = filmForToningAndBokingDTO.get().getId();
+        this.manufacturer = filmForToningAndBokingDTO.get().getManufacturer();
+        this.bandwidth = filmForToningAndBokingDTO.get().getBandwidth();
+        this.squareMeter = filmForToningAndBokingDTO.get().getSquareMeter();
+        this.classBooking = filmForToningAndBokingDTO.get().getClassBooking();
+        this.idToningAndBooking = filmForToningAndBokingDTO.get().idToningAndBooking;
+    }
 }

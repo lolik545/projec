@@ -16,11 +16,13 @@ public class ToningAndBooking {
     private String description;
     @NotBlank
     private String adress;
-public ToningAndBooking(){}
+
+    public ToningAndBooking() {
+    }
 
     public ToningAndBooking(Long id, String adress, String description) {
-        this.id=id;
-        this.adress=adress;
-        this.description=description;
+        this.id = id;
+        this.adress = adress;
+        this.description = description;
     }
 }

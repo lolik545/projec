@@ -15,7 +15,8 @@ public class ControllerDepartament {
     RepositoryDepartament repositoryDepartament;
     @Autowired
     ServiceDepartaments serviceDepartaments;
-Departament departament = new Departament();
+    Departament departament = new Departament();
+
     @PostMapping("/saveDepartament")
     public ResponseEntity saaveDepartament(@RequestBody Departament departament) {
         serviceDepartaments.save(departament);
@@ -42,7 +43,7 @@ Departament departament = new Departament();
         return ResponseEntity.ok(serviceDepartaments.getOne(id));
     }
 
-//    @GetMapping("changeDepartamentDescription/{description}")
+    //    @GetMapping("changeDepartamentDescription/{description}")
 //    public ResponseEntity changeDescriptoinDepartament(@PathVariable String description) {
 //
 //        if(serviceDepartaments.findByDescription(description)!=null){
@@ -53,11 +54,12 @@ Departament departament = new Departament();
 //
 //    }
     @GetMapping("/changeTelefonDepartamentById/{id}/telefon/{telefon}")
-    public ResponseEntity changeTelefon(@PathVariable Long id,@PathVariable String telefon){
-      if((departament=serviceDepartaments.getOne(id))!=null) {
-          departament.setTelefon(telefon);
-          return ResponseEntity.ok("Telefon chaneg");
-      }return ResponseEntity.ok("Wrong id"+id);
+    public ResponseEntity changeTelefon(@PathVariable Long id, @PathVariable String telefon) {
+        if ((departament = serviceDepartaments.getOne(id)) != null) {
+            departament.setTelefon(telefon);
+            return ResponseEntity.ok("Telefon chaneg");
+        }
+        return ResponseEntity.ok("Wrong id" + id);
     }
 
 

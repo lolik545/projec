@@ -6,17 +6,17 @@ import java.util.List;
 
 public interface ServiceEmployer {
 
-        public void save(Employer employer);
+    public void save(Employer employer);
 
-        public List<Employer> getAll();
+    public List<Employer> getAll();
 
-        public Employer getOne(Long id);
+    public Employer getOne(Long id);
 
-        public void deleteForId(Long id);
+    public void deleteForId(Long id);
 
-        public List<Employer> findAllEmployersByIdToning(Long idToning);
+    public List<Employer> findAllEmployersByIdToning(Long idToning);
 
-        public void changeEmployerIdBokingAndToning(Long id, Long idToningAndBooking);
+    public void changeEmployerIdBokingAndToning(Long id, Long idToningAndBooking);
 
     public List<Employer> findByLastNameAndFirsName(String firstName, String lastName);
 }

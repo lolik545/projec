@@ -15,7 +15,7 @@ public class Departament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-   @NotBlank
+    @NotBlank
     private String description;
     private String telefon;
     private long idToningAndBooking;

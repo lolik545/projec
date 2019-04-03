@@ -8,12 +8,13 @@ import java.util.Optional;
 public interface ServiceFilmForTintingOrBooking {
 
 
-       public void save(FilmForTintingOrBooking filmForTintingOrBooking);
+    public void save(FilmForTintingOrBooking filmForTintingOrBooking);
 
-        public void deletebyId(Long id);
+    public void deletebyId(Long id);
 
-       public Optional<FilmForTintingOrBooking> findById(Long id);
+    public Optional<FilmForTintingOrBooking> findById(Long id);
 
-       public List<FilmForTintingOrBooking> getAll();
-public void changeSquare(Long id,double squareMeter);
+    public List<FilmForTintingOrBooking> getAll();
+
+    public void changeSquare(Long id, double squareMeter);
 }

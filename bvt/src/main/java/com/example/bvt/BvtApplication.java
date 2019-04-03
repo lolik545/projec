@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 public class BvtApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BvtApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BvtApplication.class, args);
+    }
 
 }
