@@ -4,6 +4,7 @@ import com.example.bvt.component.Employer;
 import com.example.bvt.repository.RepositoryEmployers;
 import com.example.bvt.service.ServiceEmployer;
 import com.example.bvt.service.impl.ServiceEmployers;
+import com.example.bvt.service.impl.ServiceToningAndBookings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,16 @@ public class ControlerEmployers {
 
     @Autowired
     private ServiceEmployer serviceEmployer;
-
+@Autowired
+private ServiceToningAndBookings serviceToningAndBookings;
     @PostMapping("/saveEmployer")
     public ResponseEntity saveEmployer(@RequestBody Employer employer) {
+        Boolean bool=serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) != null ;
+        if (bool==false){
         serviceEmployer.save(employer);
-        return ResponseEntity.ok("Saved " + employer);
+            return ResponseEntity.ok("Saved " + employer);
+        }else
+        return ResponseEntity.ok("Wrong IdToningAndBoking");
     }
 
     @GetMapping("/deleteEmployer/{id}")
@@ -55,5 +61,10 @@ public class ControlerEmployers {
     public ResponseEntity<List<Employer>> findByLastNameAndFirsName(@PathVariable String firstName, @PathVariable String lastName) throws Exception {
         List<Employer> employers = serviceEmployer.findByLastNameAndFirsName(firstName, lastName);
         return ResponseEntity.ok(employers);
+    }
+    @DeleteMapping("/deleteAllEmployers")
+    public ResponseEntity deleteAllEmployers(){
+        serviceEmployer.deleteAllEmployer();
+        return ResponseEntity.ok("deleted");
     }
 }

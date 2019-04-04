@@ -4,7 +4,6 @@ import com.example.bvt.component.Employer;
 import com.example.bvt.repository.RepositoryEmployers;
 import com.example.bvt.service.ServiceEmployer;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,6 +14,12 @@ import java.util.List;
 public class ServiceEmployers implements ServiceEmployer {
     private final RepositoryEmployers repositoryEmployers;
     private final ServiceToningAndBookings serviceToningAndBookings;
+
+
+    @Override
+    public void deleteAllEmployer() {
+        repositoryEmployers.deleteAll();
+    }
 
     @Override
     public void save(Employer employer) {
@@ -82,6 +87,5 @@ public class ServiceEmployers implements ServiceEmployer {
         }
         return list;
     }
-
 
 }

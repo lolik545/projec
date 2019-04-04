@@ -5,6 +5,7 @@ import com.example.bvt.component.Employer;
 import java.util.List;
 
 public interface ServiceEmployer {
+    public void deleteAllEmployer();
 
     public void save(Employer employer);
 
@@ -19,4 +20,5 @@ public interface ServiceEmployer {
     public void changeEmployerIdBokingAndToning(Long id, Long idToningAndBooking);
 
     public List<Employer> findByLastNameAndFirsName(String firstName, String lastName);
+
 }
