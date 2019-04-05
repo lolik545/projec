@@ -5,9 +5,10 @@ import com.example.bvt.component.OrdersService;
 import java.util.List;
 
 public interface ServiceOrders {
-//    public List<OrdersService> getAllOrderService();
-//    public List<OrdersService> getOrderByIdClient();
-//    public List<OrdersService> getOrderByIdToningANdService();
-//    public List<OrdersService> getOrderByIdFilmsToning();
-//    public void deleteOrder();
+     List<OrdersService> getAllOrderService();
+     List<OrdersService> getOrderByIdClient(Long id);
+     List<OrdersService> getOrderByIdToningANdService(Long id);
+     List<OrdersService> getOrderByIdFilmsToning(Long id);
+     void deleteOrderById(Long id);
+void saveOrder(OrdersService ordersService);
 }
