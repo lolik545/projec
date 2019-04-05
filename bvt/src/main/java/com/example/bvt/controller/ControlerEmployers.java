@@ -5,6 +5,7 @@ import com.example.bvt.repository.RepositoryEmployers;
 import com.example.bvt.service.ServiceEmployer;
 import com.example.bvt.service.impl.ServiceEmployers;
 import com.example.bvt.service.impl.ServiceToningAndBookings;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,15 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ControlerEmployers {
 
-    @Autowired
-    private ServiceEmployer serviceEmployer;
+
+    private final ServiceEmployer serviceEmployer;
 @Autowired
 private ServiceToningAndBookings serviceToningAndBookings;
     @PostMapping("/saveEmployer")
     public ResponseEntity saveEmployer(@RequestBody Employer employer) {
-        Boolean bool=serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) != null ;
+        Boolean bool=(serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) != null );
         if (bool==false){
         serviceEmployer.save(employer);
             return ResponseEntity.ok("Saved " + employer);
@@ -58,7 +60,7 @@ private ServiceToningAndBookings serviceToningAndBookings;
     }
 
     @GetMapping("/findEmployerBYFirsname/{firstName}/lastName/{lastName}")
-    public ResponseEntity<List<Employer>> findByLastNameAndFirsName(@PathVariable String firstName, @PathVariable String lastName) throws Exception {
+    public ResponseEntity<List<Employer>> findByLastNameAndFirsName(@PathVariable String firstName, @PathVariable String lastName)  {
         List<Employer> employers = serviceEmployer.findByLastNameAndFirsName(firstName, lastName);
         return ResponseEntity.ok(employers);
     }

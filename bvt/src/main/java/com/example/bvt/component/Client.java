@@ -17,9 +17,5 @@ public class Client {
     private long id;
     private String firstNameClient;
     private String lastNameClient;
-    private long idFilmForTintingOrBooking;
-    private double squareMeter;
-    @NotBlank
     private String contact;
-    private Long idToningAndBooking;
 }

@@ -7,14 +7,12 @@ import java.util.Optional;
 
 public interface ServiceClients {
 
-    public void save(Client client);
+     void save(Client client);
 
-    public List<Client> getAll();
+     List<Client> getAll();
 
-    public Client getOne(Long id);
+     Client getOne(Long id);
 
-    public void deleteForId(Long id);
+     void deleteForId(Long id);
 
-    public List<Client> getAllToToningID(Long id);
-public Optional<Client> getClientByID(Long id);
 }

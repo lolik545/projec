@@ -22,8 +22,7 @@ List<Client>list=new ArrayList<>();
 
     @Override
     public List<Client> getAll() {
-        List<Client> clientList = new ArrayList<>();
-        clientList.addAll(repositoryClient.findAll());
+        List<Client> clientList = new ArrayList<>(repositoryClient.findAll());
         return clientList;
     }
 
@@ -37,22 +36,5 @@ List<Client>list=new ArrayList<>();
     public void deleteForId(Long id) {
         repositoryClient.deleteById(id);
 
-    }
-
-    @Override
-    public List<Client> getAllToToningID(Long id) {
-        List<Client>clientList=repositoryClient.findAll();
-        for (int i=0;i<=clientList.size()-1;i++){
-            if(clientList.get(i).getIdToningAndBooking().hashCode()==id.hashCode()){
-                list.add(clientList.get(i));
-
-            }
-        }
-        return list;
-    }
-
-    @Override
-    public Optional<Client> getClientByID(Long id) {
-        return Optional.ofNullable(repositoryClient.getOne(id));
     }
 }
