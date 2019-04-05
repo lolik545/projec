@@ -46,7 +46,7 @@ public class ControllerToningAndBooking {
     }
 
     @GetMapping("/getOneToningService/{id}")
-    @JsonSerialize
+
     public ResponseEntity getOneToningService(@PathVariable Long id) {
         toningAndBookingOptional = serviceToningAndBooking.getOne(id);
         return ResponseEntity.ok(toningAndBookingOptional);
