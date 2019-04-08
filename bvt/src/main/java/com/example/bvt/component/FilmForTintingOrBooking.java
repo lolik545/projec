@@ -21,8 +21,8 @@ public class FilmForTintingOrBooking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String manufacturer;
-    private double bandwidth;
-    private double squareMeter;
+    private Integer bandwidth;
+    private Integer squareMeter;
     private String color;
     private String classBooking;
     private Long idToningAndBooking;

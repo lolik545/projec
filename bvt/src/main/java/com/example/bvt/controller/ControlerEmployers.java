@@ -24,7 +24,7 @@ public class ControlerEmployers {
 private ServiceToningAndBookings serviceToningAndBookings;
     @PostMapping("/saveEmployer")
     public ResponseEntity saveEmployer(@RequestBody Employer employer) {
-        Boolean bool=(serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) != null );
+        Boolean bool=(serviceToningAndBookings.getOne(employer.getIdToningAndBooking()) == null );
         if (bool==false){
         serviceEmployer.save(employer);
             return ResponseEntity.ok("Saved " + employer);

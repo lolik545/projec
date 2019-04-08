@@ -1,5 +1,6 @@
 package com.example.bvt.component;
 
+import com.example.bvt.modelDTO.OrdersServiceDTO;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -16,7 +17,18 @@ public class OrdersService {
     private Long idToningAndBoking;
     private Long idFilmForTinigOrBooking;
     private Long idClient;
-    private Long idEmployer;
+    private Integer squrareMeters;
     private boolean theOrderIsComplete ;
 
+    public void OrdersService() {
+
+    }
+
+    public void OrdersSevice(OrdersServiceDTO ordersServiceDTO){
+    this.idToningAndBoking=ordersServiceDTO.getIdToningAndBoking();
+    this.idFilmForTinigOrBooking=ordersServiceDTO.getIdFilmForTinigOrBooking();
+    this.idClient=ordersServiceDTO.getIdClient();
+    this.theOrderIsComplete=ordersServiceDTO.isTheOrderIsComplete();
+this.squrareMeters=ordersServiceDTO.getSqurareMeters();
+    }
 }

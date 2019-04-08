@@ -16,5 +16,7 @@ public interface ServiceFilmForTintingOrBooking {
 
     public List<FilmForTintingOrBooking> getAll();
 
-    public void changeSquare(Long id, double squareMeter);
+    public void changeSquare(Long id, Integer squareMeter);
+
+   public List<FilmForTintingOrBooking> getAllFilmsForClient();
 }

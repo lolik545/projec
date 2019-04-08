@@ -12,9 +12,9 @@ import java.util.Optional;
 @RestController
 public class ControllerDepartament {
     @Autowired
-    RepositoryDepartament repositoryDepartament;
+ private    RepositoryDepartament repositoryDepartament;
     @Autowired
-    ServiceDepartaments serviceDepartaments;
+   private ServiceDepartaments serviceDepartaments;
     Departament departament = new Departament();
 
     @PostMapping("/saveDepartament")
@@ -55,8 +55,10 @@ public class ControllerDepartament {
 //    }
     @GetMapping("/changeTelefonDepartamentById/{id}/telefon/{telefon}")
     public ResponseEntity changeTelefon(@PathVariable Long id, @PathVariable String telefon) {
+
         if ((departament = serviceDepartaments.getOne(id)) != null) {
             departament.setTelefon(telefon);
+            serviceDepartaments.save(departament);
             return ResponseEntity.ok("Telefon chaneg");
         }
         return ResponseEntity.ok("Wrong id" + id);

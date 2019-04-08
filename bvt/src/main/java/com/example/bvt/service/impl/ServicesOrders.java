@@ -1,6 +1,8 @@
 package com.example.bvt.service.impl;
 
+import com.example.bvt.component.FilmForTintingOrBooking;
 import com.example.bvt.component.OrdersService;
+import com.example.bvt.repository.RepositoryFilmForTintingOrBooking;
 import com.example.bvt.repository.RepositoryOrdesServic;
 import com.example.bvt.repository.RepositoryToningAndBooking;
 import com.example.bvt.service.ServiceOrders;
@@ -15,7 +17,7 @@ import java.util.List;
 public class ServicesOrders implements ServiceOrders {
 private final RepositoryOrdesServic repositoryOrdesServic;
 private final RepositoryToningAndBooking repositoryToningAndBooking;
-
+private final RepositoryFilmForTintingOrBooking repositoryFilmForTintingOrBooking;
     @Override
     public List<OrdersService> getAllOrderService() {
         return repositoryOrdesServic.findAll();
@@ -76,7 +78,19 @@ private final RepositoryToningAndBooking repositoryToningAndBooking;
     @Override
     public void saveOrder(OrdersService ordersService) {
     if (repositoryToningAndBooking.findById(ordersService.getIdToningAndBoking()).isPresent()){
+
+        if(repositoryFilmForTintingOrBooking.findById(ordersService.getIdFilmForTinigOrBooking())!=null){
+       ServiceFilmForTintingOrBookings serviceFilmForTintingOrBookings=new ServiceFilmForTintingOrBookings();
+       FilmForTintingOrBooking filmForTintingOrBooking=repositoryFilmForTintingOrBooking.getOne(ordersService.getIdToningAndBoking());
+       filmForTintingOrBooking.setSquareMeter(filmForTintingOrBooking.getSquareMeter()-ordersService.getSqurareMeters());
+       serviceFilmForTintingOrBookings.save(filmForTintingOrBooking);
         repositoryOrdesServic.save(ordersService);
-    }
+
+    }}
 }
+
+    @Override
+    public OrdersService getOrderById(Long id) {
+       return repositoryOrdesServic.getOne(id);
+    }
 }

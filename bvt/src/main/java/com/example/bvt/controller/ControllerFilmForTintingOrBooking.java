@@ -14,10 +14,14 @@ public class ControllerFilmForTintingOrBooking {
 
     private final ServiceFilmForTintingOrBookings serviceFilmForTintingOrBookings;
 
-    @PostMapping("saveFilm")
+    @PostMapping("/saveFilm")
     public ResponseEntity saveFilm(@RequestBody FilmForTintingOrBooking filmForTintingOrBooking) {
         serviceFilmForTintingOrBookings.save(filmForTintingOrBooking);
         return ResponseEntity.ok(filmForTintingOrBooking + "saved");
+    }
+    @GetMapping("/getAllFilmsForClient")
+    public ResponseEntity getAllFilmsForClient(){
+        return ResponseEntity.ok( serviceFilmForTintingOrBookings.getAllFilmsForClient());
     }
 
     @PostMapping("/deleteFilm/{id}")
@@ -31,7 +35,7 @@ public class ControllerFilmForTintingOrBooking {
         return ResponseEntity.ok(serviceFilmForTintingOrBookings.findById(id));
     }
 
-    @GetMapping("findAll")
+    @GetMapping("/findAllFilms")
     public ResponseEntity findAll() {
         return ResponseEntity.ok(serviceFilmForTintingOrBookings.getAll());
     }

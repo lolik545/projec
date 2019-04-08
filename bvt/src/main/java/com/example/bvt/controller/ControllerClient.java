@@ -19,7 +19,7 @@ private Client client;
     @PostMapping("/saveClient")
     public ResponseEntity saveClient(@RequestBody Client client) {
         serviceClient.save(client);
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok("SAVED");
 
     }
 
@@ -32,7 +32,7 @@ private Client client;
     public ResponseEntity getAllClients() {
         return ResponseEntity.ok(serviceClient.getAll());
     }
-    @PostMapping("/deleteClientbyID{id}")
+    @PostMapping("/deleteClientbyID/{id}")
     public ResponseEntity deleteClientByID(@PathVariable Long id) {
         serviceClient.deleteForId(id);
         return ResponseEntity.ok("deleted");

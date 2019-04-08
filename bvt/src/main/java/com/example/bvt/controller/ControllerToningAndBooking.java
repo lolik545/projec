@@ -57,8 +57,8 @@ public class ControllerToningAndBooking {
         return ResponseEntity.ok(serviceToningAndBooking.getAll());
     }
 
-    @PutMapping("changeAdressToningService/{adress}")
-    public ResponseEntity changeAdressTOningService(@PathVariable Long id, String adress) {
+    @PutMapping("/changeAdressToningService/{id}/adres/{adress}")
+    public ResponseEntity changeAdressTOningService(@PathVariable Long id,@PathVariable String adress) {
         serviceToningAndBooking.changeAdress(id, adress);
         return ResponseEntity.ok("changed");
     }

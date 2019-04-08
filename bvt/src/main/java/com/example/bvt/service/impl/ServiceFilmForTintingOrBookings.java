@@ -48,13 +48,26 @@ public class ServiceFilmForTintingOrBookings implements ServiceFilmForTintingOrB
     }
 
     @Override
-    public void changeSquare(Long id, double squareMeter) {
+    public void changeSquare(Long id, Integer squareMeter) {
 
         repositoryFilmForTintingOrBooking.findById(id).isPresent();
         filmForToningAndBokingDTO = repositoryFilmForTintingOrBooking.findById(id);
-        filmForToningAndBokingDTO.get().setSquareMeter(squareMeter);
+        filmForToningAndBokingDTO.get().setSquareMeter( squareMeter);
         FilmForTintingOrBooking filmForTintingOrBooking = new FilmForTintingOrBooking(filmForToningAndBokingDTO);
         repositoryFilmForTintingOrBooking.save(filmForTintingOrBooking);
+    }
+
+    @Override
+    public List<FilmForTintingOrBooking> getAllFilmsForClient() {
+        List<FilmForTintingOrBooking> filmForTintingOrBookings = new ArrayList<>();
+        List<FilmForTintingOrBooking> listFilms = new ArrayList<>();
+        filmForTintingOrBookings = repositoryFilmForTintingOrBooking.findAll();
+        for (int i = 0; i <= filmForTintingOrBookings.size() - 1; i++) {
+            if (filmForTintingOrBookings.get(i).getSquareMeter() > 0) {
+                listFilms.add(filmForTintingOrBookings.get(i));
+            }
+        }
+        return listFilms;
     }
 
 }
